@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Route Recorder & Navigator</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>Route Recorder</h1>
+            <div id="status" class="status">Ready</div>
+        </header>
+
+        <div id="map"></div>
+
+        <div class="controls">
+            <div class="tab-buttons">
+                <button id="recordTab" class="tab-btn active">Record</button>
+                <button id="savedTab" class="tab-btn">Saved Routes</button>
+                <button id="navigateTab" class="tab-btn">Navigate</button>
+            </div>
+
+            <div id="recordPanel" class="panel active">
+                <input type="text" id="routeName" placeholder="Route name (optional)">
+                <button id="startRecording" class="btn btn-primary">Start Recording</button>
+                <button id="stopRecording" class="btn btn-danger" disabled>Stop Recording</button>
+                <button id="saveRoute" class="btn btn-success" disabled>Save Route</button>
+                <button id="clearRoute" class="btn btn-secondary">Clear</button>
+                <div class="stats">
+                    <div>Distance: <span id="distance">0</span> km</div>
+                    <div>Points: <span id="pointCount">0</span></div>
+                    <div>Duration: <span id="duration">00:00</span></div>
+                </div>
+            </div>
+
+            <div id="savedPanel" class="panel">
+                <div id="routesList"></div>
+            </div>
+
+            <div id="navigatePanel" class="panel">
+                <select id="routeSelect">
+                    <option value="">Select a route...</option>
+                </select>
+                <button id="startNavigation" class="btn btn-primary" disabled>Start Navigation</button>
+                <button id="stopNavigation" class="btn btn-danger" disabled>Stop Navigation</button>
+                <div id="navigationInfo" class="navigation-info"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="storage.js"></script>
+    <script src="utils.js"></script>
+    <script src="navigation.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
